@@ -194,3 +194,6 @@ let state = {
 let arr = ['Eric', 'Hoi dan IT']
 let [name, addressChanel] = arr
     console.log('Check key: ', name, addressChanel)
+
+let watashi = ['Huu Hung', 'Khoa hoc ReacJS', 'HN']
+    console.log('check watashi', name, chanel, addres)
