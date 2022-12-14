@@ -35,17 +35,45 @@ function getTodos(id, callback) {
 }
 
  
+// const getNewTodo = async (id) => {
+
+//     let response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
+//     console.log(' >>> check response: ', response)
+//     if(response && response.status !== 200) {
+//         throw new Error('Something wrongs width status code: ' + response.status )
+//         // reject
+//     }
+//     let data = await response.json()
+//     return data
+//         // resolve
+
+// }   
+
+
 const getNewTodo = async (id) => {
+    try {   
+        let response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
+        if(response && response.status !== 200) {
+            throw new Error('Something wrongs width status code: ' + response.status )
+                    // reject
+        }
 
-    let response = await fetch(`https://jsonplaceholder.typicode.com/todos/${id}`)
-    let data = await response.json()
-    return data
-}   
+        let data = await response.json();
+        return data
+    }catch(e) {
+        console.log('check catch err', e.message)
+    }
+}
 
-getNewTodo(2)
-.then(data => {
-    console.log("check data", data)
-})
+
+// getNewTodo('asdd')
+// .then(data => {
+//     console.log("check data", data)
+// })
+// .catch(err => {
+//     console.log(" >>> check err", err.message)
+// })
+
 
 
 
@@ -137,11 +165,32 @@ getNewTodo(2)
         // .catch(error => {
         //     console.log(error)
         // })
+    
 
-        
+let arr1 = [1,2,3,4,6,7]
+console.log( arr1)
+
+let state = {
+    fullName: 'Huu Hung',
+    address: 'Ha Noi',
+    age: 21
+}
 
 
 
+// let arr2 = {...state, chanel: 'khong co', skil: 'HTML, CSS, JS, GIT, NODEJS, REACTJS'}
+// console.log(arr2)
+
+// let name = state.name;
+// let address = state.address;
+// let age = state.age
 
 
+// let { fullName, address, age} = states
 
+// console.log('check key',fullName, address,age)
+
+
+let arr = ['Eric', 'Hoi dan IT']
+let [name, addressChanel] = arr
+    console.log('Check key: ', name, addressChanel)
